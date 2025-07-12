@@ -1,4 +1,6 @@
+import 'package:api_session/core/utils/app_colors.dart';
 import 'package:api_session/core/widgets/custom_text_form_field.dart';
+import 'package:api_session/core/widgets/general_button.dart';
 import 'package:api_session/core/widgets/password_field.dart';
 import 'package:flutter/material.dart';
 
@@ -39,6 +41,12 @@ class _LoginFormState extends State<LoginForm> {
           PasswordField(
             controller: passwordController,
             hintText: "Password",
+          ),
+          GeneralButton(
+            text: "Login",
+            backgroundColor: AppColors.primaryColor,
+            textColor: AppColors.whiteColor,
+            onPressed: () {},
           ),
         ],
       ),
