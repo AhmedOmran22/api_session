@@ -29,27 +29,24 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        spacing: 16,
-        children: [
-          SizedBox(height: MediaQuery.of(context).size.height * 0.2),
-          CustomTextFormField(
-            controller: emailController,
-            hitnText: "Email",
-          ),
-          PasswordField(
-            controller: passwordController,
-            hintText: "Password",
-          ),
-          GeneralButton(
-            text: "Login",
-            backgroundColor: AppColors.primaryColor,
-            textColor: AppColors.whiteColor,
-            onPressed: () {},
-          ),
-        ],
-      ),
+    return Column(
+      spacing: 16,
+      children: [
+        CustomTextFormField(
+          controller: emailController,
+          hitnText: "Email",
+        ),
+        PasswordField(
+          controller: passwordController,
+          hintText: "Password",
+        ),
+        GeneralButton(
+          text: "Login",
+          backgroundColor: AppColors.primaryColor,
+          textColor: AppColors.whiteColor,
+          onPressed: () {},
+        ),
+      ],
     );
   }
 }

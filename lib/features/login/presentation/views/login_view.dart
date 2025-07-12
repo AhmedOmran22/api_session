@@ -1,3 +1,4 @@
+import 'package:api_session/core/utils/app_assets.dart';
 import 'package:api_session/features/login/presentation/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 
@@ -6,10 +7,21 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: LoginForm(),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.2,
+              ),
+              Image.asset(AppAssets.imagesUser),
+              const LoginForm(),
+            ],
+          ),
+        ),
       ),
     );
   }
