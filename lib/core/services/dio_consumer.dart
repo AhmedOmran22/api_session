@@ -1,3 +1,4 @@
+import 'package:api_session/core/constants/end_points.dart';
 import 'package:dio/dio.dart';
 
 import '../errors/exception.dart';
@@ -8,7 +9,7 @@ class DioConsumer implements ApiService {
   final Dio dio;
 
   DioConsumer({required this.dio}) {
-    dio.options.baseUrl = "https://optikick-production-8c8c.up.railway.app/api";
+    dio.options.baseUrl = EndPoints.baseUrl;
   }
 
   @override
