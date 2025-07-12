@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'core/theme_cubit/theme_cubit_state.dart';
 import 'core/themes/dark_theme.dart';
 import 'core/themes/light_theme.dart';
-import 'features/login/presentation/views/login_view.dart';
+import 'features/auth/presentation/views/login_view.dart';
 
 class ApiSession extends StatelessWidget {
   const ApiSession({super.key});

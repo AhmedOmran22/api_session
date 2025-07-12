@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
@@ -28,23 +27,28 @@ class CustomTextFormField extends StatelessWidget {
       maxLines: maxLines,
       decoration: InputDecoration(
         hintText: hitnText,
-        hintStyle: Theme.of(context)
-            .textTheme
-            .titleMedium!
-            .copyWith(color: Colors.grey, fontSize: 14),
+        hintStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
+          color: Colors.grey,
+          fontSize: 14,
+        ),
         suffixIcon: suffixIcon,
         border: Theme.of(context).inputDecorationTheme.border,
-        focusedBorder: Theme.of(context).inputDecorationTheme.focusedBorder,
-        enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
+        focusedBorder: Theme.of(
+          context,
+        ).inputDecorationTheme.focusedBorder,
+        enabledBorder: Theme.of(
+          context,
+        ).inputDecorationTheme.enabledBorder,
       ),
       style: Theme.of(context).textTheme.titleMedium!.copyWith(
-            fontWeight: FontWeight.w500,
-            fontSize: 14,
-          ),
+        fontWeight: FontWeight.w500,
+        fontSize: 14,
+      ),
       cursorColor: Colors.blueGrey,
       keyboardType: textInputType,
       controller: controller,
-      validator: validator ??
+      validator:
+          validator ??
           (data) {
             if (data!.isEmpty) {
               return "Please enter $hitnText";

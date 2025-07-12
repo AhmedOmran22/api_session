@@ -1,6 +1,6 @@
 import 'package:api_session/core/utils/app_assets.dart';
-import 'package:api_session/features/login/presentation/widgets/login_form.dart';
 import 'package:flutter/material.dart';
+import '../widgets/login_form.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -13,11 +13,12 @@ class LoginView extends StatelessWidget {
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
+            spacing: 16,
             children: [
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.2,
               ),
-              Image.asset(AppAssets.imagesUser),
+              Image.asset(AppAssets.imagesUser, height: 250),
               const LoginForm(),
             ],
           ),

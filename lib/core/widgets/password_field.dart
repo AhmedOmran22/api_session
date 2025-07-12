@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class PasswordField extends StatefulWidget {
   const PasswordField({
     super.key,
@@ -42,12 +41,17 @@ class _PasswordFieldState extends State<PasswordField> {
                 ),
         ),
         hintText: widget.hintText,
-        hintStyle: Theme.of(
-          context,
-        ).textTheme.titleMedium!.copyWith(color: Colors.grey, fontSize: 14),
+        hintStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
+          color: Colors.grey,
+          fontSize: 14,
+        ),
         border: Theme.of(context).inputDecorationTheme.border,
-        focusedBorder: Theme.of(context).inputDecorationTheme.focusedBorder,
-        enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
+        focusedBorder: Theme.of(
+          context,
+        ).inputDecorationTheme.focusedBorder,
+        enabledBorder: Theme.of(
+          context,
+        ).inputDecorationTheme.enabledBorder,
       ),
       style: Theme.of(context).textTheme.titleMedium!.copyWith(
         fontWeight: FontWeight.w500,
