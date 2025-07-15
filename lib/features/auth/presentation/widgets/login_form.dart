@@ -46,7 +46,7 @@ class _LoginFormState extends State<LoginForm> {
         children: [
           CustomTextFormField(
             controller: emailController,
-            hitnText: "Email",
+            hintText: "Email",
             validator: (data) {
               if (data!.isEmpty) {
                 return "email can't be empty";

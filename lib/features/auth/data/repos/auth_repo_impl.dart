@@ -55,6 +55,41 @@ class AuthRepoImpl implements AuthRepo {
         EndPoints.forgotPassword,
         data: {"email": "$email"},
       );
+      Prefs.setString(kForgottenEmail, email);
+      return const Right(null);
+    } on CustomException catch (e) {
+      return left((ServerFailure(errMessage: e.message)));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> verfiyCode({required String code}) async {
+    try {
+      await apiService.post(
+        EndPoints.verifyCode,
+        data: {"resetCode": "$code"},
+      );
+      return const Right(null);
+    } on CustomException catch (e) {
+      return left((ServerFailure(errMessage: e.message)));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> resetPassword({
+    required String newPassword,
+  }) async {
+    try {
+      final result = await apiService.put(
+        EndPoints.resetPassword,
+        data: {
+          "newPassword": "$newPassword",
+          "email": Prefs.getString(kForgottenEmail),
+        },
+      );
+      final String token = result['token'];
+      Prefs.setString(kToken, token);
+      Prefs.removeData(key: kForgottenEmail);
       return const Right(null);
     } on CustomException catch (e) {
       return left((ServerFailure(errMessage: e.message)));

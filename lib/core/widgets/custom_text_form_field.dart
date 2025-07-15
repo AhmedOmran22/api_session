@@ -4,7 +4,7 @@ class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
     this.onSaved,
-    this.hitnText,
+    this.hintText,
     this.controller,
     this.textInputType = TextInputType.text,
     this.validator,
@@ -12,7 +12,7 @@ class CustomTextFormField extends StatelessWidget {
     this.maxLines,
     this.enabled,
   });
-  final String? hitnText;
+  final String? hintText;
   final Function(String?)? onSaved;
   final TextEditingController? controller;
   final TextInputType? textInputType;
@@ -26,7 +26,7 @@ class CustomTextFormField extends StatelessWidget {
       enabled: enabled,
       maxLines: maxLines,
       decoration: InputDecoration(
-        hintText: hitnText,
+        hintText: hintText,
         hintStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
           color: Colors.grey,
           fontSize: 14,
@@ -51,7 +51,7 @@ class CustomTextFormField extends StatelessWidget {
           validator ??
           (data) {
             if (data!.isEmpty) {
-              return "Please enter $hitnText";
+              return "Please enter $hintText";
             }
             return null;
           },

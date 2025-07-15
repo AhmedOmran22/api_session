@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../../features/auth/presentation/views/create_account_view.dart';
 import '../../features/auth/presentation/views/forgot_password_view.dart';
+import '../../features/auth/presentation/views/reset_password_view.dart';
+import '../../features/auth/presentation/views/verfication_code_view.dart';
 import '../../features/home/presentation/views/home_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -18,7 +20,17 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const HomeView());
     case AppRoutes.forgotPassword:
       return MaterialPageRoute(builder: (_) => const ForgotPasswordView());
-      
+
+    case AppRoutes.verificationCode:
+      return MaterialPageRoute(
+        builder: (_) => const VerficationCodeView(),
+      );
+
+case AppRoutes.resetPassword:
+      return MaterialPageRoute(
+        builder: (_) => const ResetPasswordView(),
+      );
+
     default:
       return MaterialPageRoute(
         builder: (_) => Scaffold(

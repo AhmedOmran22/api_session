@@ -1,3 +1,4 @@
+import 'package:api_session/core/routes/app_routes.dart';
 import 'package:api_session/core/widgets/custom_text_form_field.dart';
 import 'package:api_session/core/widgets/general_button.dart';
 import 'package:api_session/features/auth/presentation/cubits/forgot_password_cubit/forgot_password_cubit.dart';
@@ -42,7 +43,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
         spacing: 16,
         children: [
           CustomTextFormField(
-            hitnText: "Email",
+            hintText: "Email",
             controller: emailController,
             textInputType: TextInputType.emailAddress,
             validator: (data) {
@@ -62,6 +63,8 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
               }
               if (state is ForgotPasswordSuccess) {
                 showSnackBarFuction(context, "check your email");
+
+                Navigator.pushNamed(context, AppRoutes.verificationCode);
               }
             },
             builder: (context, state) {

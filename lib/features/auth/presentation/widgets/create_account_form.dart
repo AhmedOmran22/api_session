@@ -56,7 +56,7 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
         children: [
           CustomTextFormField(
             controller: nameController,
-            hitnText: "name",
+            hintText: "name",
           ),
           CustomTextFormField(
             controller: emailController,
@@ -70,7 +70,7 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
               }
               return null;
             },
-            hitnText: "Email",
+            hintText: "Email",
           ),
           CustomTextFormField(
             controller: phoneController,
@@ -84,7 +84,7 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
               }
               return null;
             },
-            hitnText: "phone number",
+            hintText: "phone number",
           ),
           PasswordField(
             controller: passwordController,
