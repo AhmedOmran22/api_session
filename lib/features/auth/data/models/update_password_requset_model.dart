@@ -1,5 +1,4 @@
-class UpdatePasswordRequsetModel 
-{
+class UpdatePasswordRequsetModel {
   final String oldPassword;
   final String newPassword;
   UpdatePasswordRequsetModel({

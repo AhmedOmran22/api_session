@@ -31,27 +31,16 @@ class _PasswordFieldState extends State<PasswordField> {
             setState(() {});
           },
           icon: isPasswordVisible
-              ? Icon(
-                  Icons.visibility,
-                  color: Colors.grey.withAlpha(128),
-                )
-              : Icon(
-                  Icons.visibility_off,
-                  color: Colors.grey.withAlpha(128),
-                ),
+              ? Icon(Icons.visibility, color: Colors.grey.withAlpha(128))
+              : Icon(Icons.visibility_off, color: Colors.grey.withAlpha(128)),
         ),
         hintText: widget.hintText,
-        hintStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
-          color: Colors.grey,
-          fontSize: 14,
-        ),
+        hintStyle: Theme.of(
+          context,
+        ).textTheme.titleMedium!.copyWith(color: Colors.grey, fontSize: 14),
         border: Theme.of(context).inputDecorationTheme.border,
-        focusedBorder: Theme.of(
-          context,
-        ).inputDecorationTheme.focusedBorder,
-        enabledBorder: Theme.of(
-          context,
-        ).inputDecorationTheme.enabledBorder,
+        focusedBorder: Theme.of(context).inputDecorationTheme.focusedBorder,
+        enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
       ),
       style: Theme.of(context).textTheme.titleMedium!.copyWith(
         fontWeight: FontWeight.w500,

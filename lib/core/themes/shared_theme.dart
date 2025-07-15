@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
 
 abstract class SharedTheme {
- static TextTheme textTheme = const TextTheme(
+  static TextTheme textTheme = const TextTheme(
     titleLarge: TextStyle(fontSize: 24),
     bodyMedium: TextStyle(fontSize: 16),
     displayLarge: TextStyle(fontSize: 28),
@@ -11,7 +11,7 @@ abstract class SharedTheme {
     bodySmall: TextStyle(fontSize: 14),
   );
 
- static InputDecorationTheme inputDecorationTheme = InputDecorationTheme(
+  static InputDecorationTheme inputDecorationTheme = InputDecorationTheme(
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(16),
       borderSide: BorderSide(color: Colors.grey.withAlpha(128)),

@@ -79,22 +79,17 @@ class _UpdatePasswordFormState extends State<UpdatePasswordForm> {
                   if (formKey.currentState!.validate()) {
                     if (newPasswordController.text ==
                         rePasswordController.text) {
-                      UpdatePasswordRequsetModel
-                      updatePasswordRequestModel =
+                      UpdatePasswordRequsetModel updatePasswordRequestModel =
                           UpdatePasswordRequsetModel(
                             oldPassword: oldPasswordController.text,
                             newPassword: newPasswordController.text,
                           );
 
                       context.read<UpdatePasswordCubit>().updatePassword(
-                        updatePasswordRequsetModel:
-                            updatePasswordRequestModel,
+                        updatePasswordRequsetModel: updatePasswordRequestModel,
                       );
                     } else {
-                      showSnackBarFuction(
-                        context,
-                        "Password doesn't match",
-                      );
+                      showSnackBarFuction(context, "Password doesn't match");
                     }
                   } else {
                     setState(() {

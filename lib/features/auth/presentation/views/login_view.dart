@@ -26,13 +26,12 @@ class LoginView extends StatelessWidget {
                 SizedBox(height: MediaQuery.of(context).size.height * 0.2),
                 Image.asset(AppAssets.imagesUser, height: 200),
                 const LoginForm(),
-                
+
                 const DontHaveAccount(
                   normalText: 'Don\'t have an account? ',
                   highlightedTextWithonTap: ' Sign Up',
                 ),
                 const SizedBox(height: 16),
-                
               ],
             ),
           ),

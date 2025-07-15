@@ -18,23 +18,16 @@ class SetingsViewBody extends StatelessWidget {
         SettingsItem(
           icon: Icons.person,
           title: 'change Password',
-          onTap: () =>
-              Navigator.pushNamed(context, AppRoutes.changePassword),
+          onTap: () => Navigator.pushNamed(context, AppRoutes.changePassword),
         ),
         const CustomDivider(),
         const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(
-              child: SettingsItem(
-                icon: Icons.dark_mode,
-                title: 'Change Theme',
-              ),
+              child: SettingsItem(icon: Icons.dark_mode, title: 'Change Theme'),
             ),
-            Padding(
-              padding: EdgeInsets.only(right: 8),
-              child: ThemeSwitcher(),
-            ),
+            Padding(padding: EdgeInsets.only(right: 8), child: ThemeSwitcher()),
           ],
         ),
         const CustomDivider(),

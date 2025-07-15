@@ -48,9 +48,7 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, void>> forgotPassword({
-    required String email,
-  }) async {
+  Future<Either<Failure, void>> forgotPassword({required String email}) async {
     try {
       await apiService.post(
         EndPoints.forgotPassword,
@@ -66,10 +64,7 @@ class AuthRepoImpl implements AuthRepo {
   @override
   Future<Either<Failure, void>> verfiyCode({required String code}) async {
     try {
-      await apiService.post(
-        EndPoints.verifyCode,
-        data: {"resetCode": "$code"},
-      );
+      await apiService.post(EndPoints.verifyCode, data: {"resetCode": "$code"});
       return const Right(null);
     } on CustomException catch (e) {
       return left((ServerFailure(errMessage: e.message)));

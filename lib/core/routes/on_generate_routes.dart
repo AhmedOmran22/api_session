@@ -18,16 +18,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const CreateAccountView());
 
     case AppRoutes.bottomNavigationBar:
-      return MaterialPageRoute(
-        builder: (_) => const BottomNavigationBarView(),
-      );
+      return MaterialPageRoute(builder: (_) => const BottomNavigationBarView());
     case AppRoutes.forgotPassword:
       return MaterialPageRoute(builder: (_) => const ForgotPasswordView());
 
     case AppRoutes.verificationCode:
-      return MaterialPageRoute(
-        builder: (_) => const VerficationCodeView(),
-      );
+      return MaterialPageRoute(builder: (_) => const VerficationCodeView());
 
     case AppRoutes.resetPassword:
       return MaterialPageRoute(builder: (_) => const ResetPasswordView());
@@ -38,9 +34,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     default:
       return MaterialPageRoute(
         builder: (_) => Scaffold(
-          body: Center(
-            child: Text("No route defined for ${settings.name}"),
-          ),
+          body: Center(child: Text("No route defined for ${settings.name}")),
         ),
       );
   }

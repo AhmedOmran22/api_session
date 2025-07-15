@@ -5,10 +5,7 @@ void showSnackBarFuction(BuildContext context, String text) {
     SnackBar(
       backgroundColor: Colors.blueGrey,
       duration: const Duration(seconds: 2),
-      content: Text(
-        text,
-        style: Theme.of(context).textTheme.bodySmall,
-      ),
+      content: Text(text, style: Theme.of(context).textTheme.bodySmall),
     ),
   );
 }

@@ -15,11 +15,8 @@ abstract class AuthRepo {
   });
   Future<Either<Failure, void>> forgotPassword({required String email});
   Future<Either<Failure, void>> verfiyCode({required String code});
-  Future<Either<Failure, void>> resetPassword({
-    required String newPassword,
-  });
+  Future<Either<Failure, void>> resetPassword({required String newPassword});
   Future<Either<Failure, void>> updatePassword({
-    required UpdatePasswordRequsetModel
-    updatePasswordRequsetModel,
+    required UpdatePasswordRequsetModel updatePasswordRequsetModel,
   });
 }

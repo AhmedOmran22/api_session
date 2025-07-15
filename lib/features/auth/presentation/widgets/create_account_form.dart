@@ -54,10 +54,7 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
       child: Column(
         spacing: 16,
         children: [
-          CustomTextFormField(
-            controller: nameController,
-            hintText: "name",
-          ),
+          CustomTextFormField(controller: nameController, hintText: "name"),
           CustomTextFormField(
             controller: emailController,
             textInputType: TextInputType.emailAddress,
@@ -86,10 +83,7 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
             },
             hintText: "phone number",
           ),
-          PasswordField(
-            controller: passwordController,
-            hintText: "Password",
-          ),
+          PasswordField(controller: passwordController, hintText: "Password"),
           PasswordField(
             controller: confirmPasswordController,
             hintText: "Confirm Password",

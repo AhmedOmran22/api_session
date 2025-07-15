@@ -23,9 +23,7 @@ class ResetPasswordView extends StatelessWidget {
             child: Column(
               spacing: 16,
               children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.25,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.25),
                 Image.asset(AppAssets.imagesUser, height: 200),
                 const ResetPasswordForm(),
                 const SizedBox(height: 16),

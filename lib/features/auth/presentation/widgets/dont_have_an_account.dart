@@ -19,17 +19,14 @@ class DontHaveAccount extends StatelessWidget {
         children: [
           TextSpan(
             text: normalText,
-            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.bold),
           ),
           TextSpan(
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                Navigator.pushNamed(
-                  context,
-                  AppRoutes.createAnAccount,
-                );
+                Navigator.pushNamed(context, AppRoutes.createAnAccount);
               },
             text: highlightedTextWithonTap,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(

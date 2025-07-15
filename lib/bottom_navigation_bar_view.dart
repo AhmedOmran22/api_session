@@ -11,8 +11,7 @@ class BottomNavigationBarView extends StatefulWidget {
       _BottomNavigationBarViewState();
 }
 
-class _BottomNavigationBarViewState
-    extends State<BottomNavigationBarView> {
+class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {

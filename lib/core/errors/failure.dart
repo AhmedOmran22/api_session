@@ -13,9 +13,7 @@ class FirebaseAuthFailure extends Failure {
 class ServerFailure extends Failure {
   ServerFailure({required super.errMessage});
 
-  factory ServerFailure.fromDioExcepiton(
-    DioException dioException,
-  ) {
+  factory ServerFailure.fromDioExcepiton(DioException dioException) {
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
         return ServerFailure(errMessage: 'connction time out');
@@ -36,24 +34,17 @@ class ServerFailure extends Failure {
         return ServerFailure(errMessage: 'bad Certificate');
 
       case DioExceptionType.cancel:
-        return ServerFailure(
-          errMessage: 'Request to ApiServer was canceled',
-        );
+        return ServerFailure(errMessage: 'Request to ApiServer was canceled');
 
       case DioExceptionType.connectionError:
         return ServerFailure(errMessage: 'Connection Error');
 
       default:
-        return ServerFailure(
-          errMessage: 'OPS there was an error',
-        );
+        return ServerFailure(errMessage: 'OPS there was an error');
     }
   }
 
-  factory ServerFailure.fromResponse(
-    int statusCode,
-    dynamic response,
-  ) {
+  factory ServerFailure.fromResponse(int statusCode, dynamic response) {
     if (statusCode >= 400 && statusCode < 500) {
       return ServerFailure(
         errMessage: response['message'] ?? response['message'],
@@ -64,8 +55,7 @@ class ServerFailure extends Failure {
       );
     } else {
       return ServerFailure(
-        errMessage:
-            'OPS there was error , status code $statusCode',
+        errMessage: 'OPS there was error , status code $statusCode',
       );
     }
   }

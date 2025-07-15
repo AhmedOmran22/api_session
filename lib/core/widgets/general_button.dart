@@ -31,10 +31,10 @@ class GeneralButton extends StatelessWidget {
         child: Text(
           text,
           style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                color: textColor,
-                fontWeight: FontWeight.w900,
-              ),
-        )
+            color: textColor,
+            fontWeight: FontWeight.w900,
+          ),
+        ),
       ),
     );
   }

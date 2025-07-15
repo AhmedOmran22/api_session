@@ -6,8 +6,7 @@ class VerifyCodeLoading extends VerifyCodeStates {}
 
 class VerifyCodeSuccess extends VerifyCodeStates {}
 
-class VerifyCodeFailure extends VerifyCodeStates 
-{
+class VerifyCodeFailure extends VerifyCodeStates {
   final String errMessage;
-  VerifyCodeFailure({ required this.errMessage});
+  VerifyCodeFailure({required this.errMessage});
 }

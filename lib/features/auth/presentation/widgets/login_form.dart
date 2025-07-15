@@ -58,10 +58,7 @@ class _LoginFormState extends State<LoginForm> {
               return null;
             },
           ),
-          PasswordField(
-            controller: passwordController,
-            hintText: "Password",
-          ),
+          PasswordField(controller: passwordController, hintText: "Password"),
           const ForgotPasswordText(),
           BlocConsumer<LoginCubit, LoginStates>(
             listener: (context, state) {
@@ -100,9 +97,7 @@ class _LoginFormState extends State<LoginForm> {
         email: emailController.text,
         password: passwordController.text,
       );
-      context.read<LoginCubit>().Login(
-        loginRequestModel: loginRequestModel,
-      );
+      context.read<LoginCubit>().Login(loginRequestModel: loginRequestModel);
     } else {
       setState(() {
         autovalidateMode = AutovalidateMode.always;
