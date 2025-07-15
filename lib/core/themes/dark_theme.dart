@@ -11,9 +11,19 @@ ThemeData darkTheme = ThemeData(
   inputDecorationTheme: SharedTheme.inputDecorationTheme,
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
       backgroundColor: Colors.grey,
     ),
   ),
   textTheme: SharedTheme.textTheme,
+  bottomNavigationBarTheme: darkBottomNavigationBarTheme,
 );
+BottomNavigationBarThemeData darkBottomNavigationBarTheme =
+    const BottomNavigationBarThemeData(
+      backgroundColor: Color(0xFF121212),
+      selectedItemColor: AppColors.primaryColor,
+      unselectedItemColor: AppColors.greyColor,
+      type: BottomNavigationBarType.fixed,
+    );

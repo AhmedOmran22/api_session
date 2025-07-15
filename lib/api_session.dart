@@ -28,7 +28,7 @@ class ApiSession extends StatelessWidget {
 
 String getInitialRoute() {
   if (Prefs.getString(kToken) != null) {
-    return AppRoutes.home;
+    return AppRoutes.bottomNavigationBar;
   } else {
     return AppRoutes.login;
   }

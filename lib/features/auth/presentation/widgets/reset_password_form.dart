@@ -54,7 +54,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
               if (state is ResetPasswordSuccess) {
                 Navigator.pushNamedAndRemoveUntil(
                   context,
-                  AppRoutes.home,
+                  AppRoutes.bottomNavigationBar,
                   (route) => false,
                 );
               }

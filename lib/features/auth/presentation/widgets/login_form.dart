@@ -1,3 +1,4 @@
+import 'package:api_session/core/routes/app_routes.dart';
 import 'package:api_session/core/utils/app_colors.dart';
 import 'package:api_session/core/widgets/custom_text_form_field.dart';
 import 'package:api_session/core/widgets/general_button.dart';
@@ -68,7 +69,10 @@ class _LoginFormState extends State<LoginForm> {
                 showSnackBarFuction(context, state.errMessage);
               }
               if (state is LoginSuccess) {
-                //  todo : navigate to home
+                Navigator.pushReplacementNamed(
+                  context,
+                  AppRoutes.bottomNavigationBar,
+                );
               }
             },
             builder: (context, state) {

@@ -2,6 +2,7 @@ import 'package:api_session/core/constants/end_points.dart';
 import 'package:api_session/core/errors/failure.dart';
 import 'package:api_session/core/services/prefs.dart';
 import 'package:api_session/features/auth/data/models/create_account_request_model.dart';
+import 'package:api_session/features/auth/data/models/update_password_requset_model.dart';
 import 'package:api_session/features/auth/data/repos/auth_repo.dart';
 import 'package:dartz/dartz.dart';
 
@@ -93,6 +94,24 @@ class AuthRepoImpl implements AuthRepo {
       return const Right(null);
     } on CustomException catch (e) {
       return left((ServerFailure(errMessage: e.message)));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> updatePassword({
+    required UpdatePasswordRequsetModel updatePasswordRequsetModel,
+  }) async {
+    try {
+      await apiService.put(
+        EndPoints.updatePassword,
+        data: updatePasswordRequsetModel.toJson(),
+        headers: {"token": "${Prefs.getString(kToken)}"},
+      );
+      return const Right(null);
+    } on CustomException catch (e) {
+      return left((ServerFailure(errMessage: e.message)));
+    } catch (e) {
+      return left((ServerFailure(errMessage: e.toString())));
     }
   }
 }

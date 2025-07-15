@@ -5,4 +5,5 @@ abstract class EndPoints {
   static const String forgotPassword = "auth/forgotPasswords";
   static const String verifyCode = "auth/verifyResetCode";
   static const String resetPassword = "auth/resetPassword";
+  static const String updatePassword = "users/changeMyPassword";
 }

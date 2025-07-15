@@ -47,14 +47,14 @@ class CustomTextFormField extends StatelessWidget {
       cursorColor: Colors.blueGrey,
       keyboardType: textInputType,
       controller: controller,
-      validator:
-          validator ??
-          (data) {
-            if (data!.isEmpty) {
-              return "Please enter $hintText";
+      validator: validator != null
+          ? (data) {
+              if (data!.isEmpty) {
+                return "Please enter $hintText";
+              }
+              return null;
             }
-            return null;
-          },
+          : null,
       onSaved: onSaved,
     );
   }

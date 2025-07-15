@@ -5,7 +5,7 @@ import 'shared_theme.dart';
 
 ThemeData lightTheme = ThemeData(
   splashFactory: NoSplash.splashFactory,
-  scaffoldBackgroundColor: const Color(0xFFF1F1F1),
+  scaffoldBackgroundColor: AppColors.whiteColor,
   colorScheme: const ColorScheme.light(primary: AppColors.primaryColor),
   brightness: Brightness.light,
 
@@ -13,9 +13,20 @@ ThemeData lightTheme = ThemeData(
   inputDecorationTheme: SharedTheme.inputDecorationTheme,
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
       backgroundColor: Colors.grey,
     ),
   ),
   textTheme: SharedTheme.textTheme,
+  bottomNavigationBarTheme: lightBottomNavigationBarTheme,
 );
+
+BottomNavigationBarThemeData lightBottomNavigationBarTheme =
+    const BottomNavigationBarThemeData(
+      backgroundColor: AppColors.whiteColor,
+      selectedItemColor: AppColors.primaryColor,
+      unselectedItemColor: AppColors.greyColor,
+      type: BottomNavigationBarType.fixed,
+    );

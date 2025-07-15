@@ -21,5 +21,6 @@ void main() async {
 //? forget password
 // 1 - send email to reset password (done)
 // 2 - backend will send me a code (otp => one time password) (done)
-// 3 - get the code from my gmail and send it to backend to know me (todo)
-// 4 - reset password with new password
+// 3 - get the code from my gmail and send it to backend to know me (done)
+// 4 - reset password with new password in case I forgot (done)
+// 5 - update password (done)
