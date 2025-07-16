@@ -27,8 +27,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         builder: (_) => MultiBlocProvider(
           providers: [
             BlocProvider<ProdcutsCubit>(
-              create: (context) =>
-                  ProdcutsCubit(getIt<ProductsRepo>()..getProducts()),
+              create: (context) => ProdcutsCubit(getIt<ProductsRepo>()),
             ),
             BlocProvider<CartCubit>(
               create: (context) => CartCubit(getIt<ProductsRepo>()),

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'features/cart/presentation/views/cart_view.dart';
+import 'features/home/presentation/cubits/products_cubit/prodcuts_cubit.dart';
 
 class BottomNavigationBarView extends StatefulWidget {
   const BottomNavigationBarView({super.key});
@@ -21,6 +22,7 @@ class _BottomNavigationBarViewState
   @override
   initState() {
     context.read<CartCubit>().getCartProducts();
+    context.read<ProdcutsCubit>().getProducts();
     super.initState();
   }
 

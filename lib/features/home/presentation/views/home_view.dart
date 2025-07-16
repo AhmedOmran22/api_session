@@ -3,22 +3,10 @@ import 'package:api_session/features/cart/presentation/cubits/cart_cubit.dart';
 import 'package:api_session/features/cart/presentation/cubits/cart_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../cubits/products_cubit/prodcuts_cubit.dart';
 import '../widgets/home_view_body.dart';
 
-class HomeView extends StatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({super.key});
-
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  @override
-  initState() {
-    super.initState();
-    context.read<ProdcutsCubit>().getProducts();
-  }
 
   @override
   Widget build(BuildContext context) {
