@@ -1,4 +1,3 @@
-
 class CategoryModel {
   String? sId;
   String? name;
@@ -15,11 +14,11 @@ class CategoryModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['name'] = this.name;
-    data['slug'] = this.slug;
-    data['image'] = this.image;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['name'] = name;
+    data['slug'] = slug;
+    data['image'] = image;
     return data;
   }
 }

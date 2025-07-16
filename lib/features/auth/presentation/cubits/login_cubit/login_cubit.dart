@@ -9,9 +9,11 @@ class LoginCubit extends Cubit<LoginStates> {
 
   final AuthRepo _authRepo;
 
-  void Login({required LoginRequestModel loginRequestModel}) async {
+  void login({required LoginRequestModel loginRequestModel}) async {
     emit(LoginLoading());
-    final result = await _authRepo.login(loginRequestModel: loginRequestModel);
+    final result = await _authRepo.login(
+      loginRequestModel: loginRequestModel,
+    );
     result.fold((failure) {
       emit(LoginFailure(errMessage: failure.errMessage));
     }, (r) => emit(LoginSuccess()));

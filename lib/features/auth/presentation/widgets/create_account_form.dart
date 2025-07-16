@@ -27,6 +27,7 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
+  @override
   initState() {
     emailController = TextEditingController();
     passwordController = TextEditingController();
@@ -54,7 +55,10 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
       child: Column(
         spacing: 16,
         children: [
-          CustomTextFormField(controller: nameController, hintText: "name"),
+          CustomTextFormField(
+            controller: nameController,
+            hintText: "name",
+          ),
           CustomTextFormField(
             controller: emailController,
             textInputType: TextInputType.emailAddress,
@@ -83,7 +87,10 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
             },
             hintText: "phone number",
           ),
-          PasswordField(controller: passwordController, hintText: "Password"),
+          PasswordField(
+            controller: passwordController,
+            hintText: "Password",
+          ),
           PasswordField(
             controller: confirmPasswordController,
             hintText: "Confirm Password",
@@ -133,9 +140,10 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
       } else {
         showSnackBarFuction(context, "password doesn't match");
       }
-    } else
+    } else {
       setState(() {
         autovalidateMode = AutovalidateMode.always;
       });
+    }
   }
 }

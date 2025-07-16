@@ -46,7 +46,7 @@ class ProductModel {
     if (json['subcategory'] != null) {
       subcategory = <SubcategoryModel>[];
       json['subcategory'].forEach((v) {
-        subcategory!.add(new SubcategoryModel.fromJson(v));
+        subcategory!.add(SubcategoryModel.fromJson(v));
       });
     }
     ratingsQuantity = json['ratingsQuantity'];
@@ -58,10 +58,10 @@ class ProductModel {
     price = json['price'];
     imageCover = json['imageCover'];
     category = json['category'] != null
-        ? new CategoryModel.fromJson(json['category'])
+        ? CategoryModel.fromJson(json['category'])
         : null;
     brand = json['brand'] != null
-        ? new CategoryModel.fromJson(json['brand'])
+        ? CategoryModel.fromJson(json['brand'])
         : null;
     ratingsAverage = json['ratingsAverage'];
     createdAt = json['createdAt'];

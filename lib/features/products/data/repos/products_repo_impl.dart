@@ -17,7 +17,7 @@ class ProductsRepoImpl implements ProductsRepo {
   @override
   Future<Either<Failure, List<ProductModel>>> getProducts() async {
     try {
-     late List<ProductModel> products = [];
+      late List<ProductModel> products = [];
       final result = await apiService.get(EndPoints.products);
       for (var product in result["data"]) {
         products.add(ProductModel.fromJson(product));
@@ -37,7 +37,7 @@ class ProductsRepoImpl implements ProductsRepo {
     try {
       await apiService.post(
         EndPoints.wishlist,
-        data: {"productId": "$id"},
+        data: {"productId": id},
         headers: {"token": "${Prefs.getString(kToken)}"},
       );
       return const Right(null);

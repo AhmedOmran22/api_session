@@ -11,7 +11,8 @@ class BottomNavigationBarView extends StatefulWidget {
       _BottomNavigationBarViewState();
 }
 
-class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
+class _BottomNavigationBarViewState
+    extends State<BottomNavigationBarView> {
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -35,20 +36,20 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
             currentIndex = index;
           });
         },
-        items: [
-          const BottomNavigationBarItem(
+        items: const [
+          BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.house, size: 20),
             label: 'Home',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.bagShopping, size: 20),
             label: 'Products',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.cartArrowDown, size: 20),
             label: ' cart',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.gear, size: 20),
             label: 'More',
           ),

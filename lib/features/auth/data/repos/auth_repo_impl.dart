@@ -48,11 +48,13 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, void>> forgotPassword({required String email}) async {
+  Future<Either<Failure, void>> forgotPassword({
+    required String email,
+  }) async {
     try {
       await apiService.post(
         EndPoints.forgotPassword,
-        data: {"email": "$email"},
+        data: {"email": email},
       );
       Prefs.setString(kForgottenEmail, email);
       return const Right(null);
@@ -64,7 +66,10 @@ class AuthRepoImpl implements AuthRepo {
   @override
   Future<Either<Failure, void>> verfiyCode({required String code}) async {
     try {
-      await apiService.post(EndPoints.verifyCode, data: {"resetCode": "$code"});
+      await apiService.post(
+        EndPoints.verifyCode,
+        data: {"resetCode": code},
+      );
       return const Right(null);
     } on CustomException catch (e) {
       return left((ServerFailure(errMessage: e.message)));
@@ -79,7 +84,7 @@ class AuthRepoImpl implements AuthRepo {
       final result = await apiService.put(
         EndPoints.resetPassword,
         data: {
-          "newPassword": "$newPassword",
+          "newPassword": newPassword,
           "email": Prefs.getString(kForgottenEmail),
         },
       );
