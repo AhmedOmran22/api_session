@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/constants.dart';
 import '../../../../core/services/prefs.dart';
-import 'custom_divider.dart';
+import '../../../../core/widgets/custom_divider.dart';
 
 class SetingsViewBody extends StatelessWidget {
   const SetingsViewBody({super.key});

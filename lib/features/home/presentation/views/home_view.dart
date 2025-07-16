@@ -1,40 +1,46 @@
-import 'package:api_session/core/routes/app_routes.dart';
-import 'package:api_session/core/services/prefs.dart';
-import 'package:api_session/features/products/data/repos/products_repo_impl.dart';
+import 'package:api_session/core/utils/show_snack_bar_funnction.dart';
+import 'package:api_session/features/cart/presentation/cubits/cart_cubit.dart';
+import 'package:api_session/features/cart/presentation/cubits/cart_states.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../cubits/products_cubit/prodcuts_cubit.dart';
+import '../widgets/home_view_body.dart';
 
-import '../../../../core/constants/constants.dart';
-import '../../../../core/services/api_service.dart';
-import '../../../../core/services/setup_service_locator.dart';
-
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  @override
+  initState() {
+    super.initState();
+    context.read<ProdcutsCubit>().getProducts();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          ProductsRepoImpl(apiService: getIt<ApiService>()).getProducts();
-        },
-      ),
       appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {
-              Prefs.removeData(key: kToken);
-              Navigator.pushNamedAndRemoveUntil(
-                context,
-                AppRoutes.login,
-                (route) => false,
-              );
-            },
-            icon: const Icon(Icons.logout_sharp),
-          ),
-        ],
+        centerTitle: true,
+        title: Text("Home", style: Theme.of(context).textTheme.titleLarge),
       ),
-
-      body: const Center(child: Text('Home View')),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: BlocListener<CartCubit, CartStates>(
+          listener: (context, state) {
+            if (state is AddToCartSuccess) {
+              showSnackBarFuction(context, "Added to cart successfully");
+            }
+            if (state is CartFailure) {
+              showSnackBarFuction(context, state.errMessage);
+            }
+          },
+          child: const HomeViewBody(),
+        ),
+      ),
     );
   }
 }

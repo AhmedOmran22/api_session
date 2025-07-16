@@ -6,6 +6,6 @@ abstract class EndPoints {
   static const String verifyCode = "auth/verifyResetCode";
   static const String resetPassword = "auth/resetPassword";
   static const String updatePassword = "users/changeMyPassword";
-  static const String wishlist = "wishlist";
+  static const String cart = "cart";
   static const String products = "products";
 }

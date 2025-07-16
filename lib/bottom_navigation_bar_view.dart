@@ -1,7 +1,11 @@
+import 'package:api_session/custom_bottom_navigation_bar.dart';
+import 'package:api_session/features/cart/presentation/cubits/cart_cubit.dart';
 import 'package:api_session/features/home/presentation/views/home_view.dart';
 import 'package:api_session/features/settings/presentation/views/settings_view.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'features/cart/presentation/views/cart_view.dart';
 
 class BottomNavigationBarView extends StatefulWidget {
   const BottomNavigationBarView({super.key});
@@ -15,6 +19,12 @@ class _BottomNavigationBarViewState
     extends State<BottomNavigationBarView> {
   int currentIndex = 0;
   @override
+  initState() {
+    context.read<CartCubit>().getCartProducts();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PopScope(
@@ -26,42 +36,23 @@ class _BottomNavigationBarViewState
             });
           }
         },
-        child: screens[currentIndex],
+        child: IndexedStack(
+          index: currentIndex,
+          children: const [
+            HomeView(),
+            SizedBox(),
+            CartView(),
+            SettingsView(),
+          ],
+        ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        type: BottomNavigationBarType.fixed,
-        onTap: (index) {
+      bottomNavigationBar: CustomBottomNavigationBar(
+        onItemTapped: (index) {
           setState(() {
             currentIndex = index;
           });
         },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.house, size: 20),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.bagShopping, size: 20),
-            label: 'Products',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.cartArrowDown, size: 20),
-            label: ' cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.gear, size: 20),
-            label: 'More',
-          ),
-        ],
       ),
     );
   }
-
-  List<Widget> screens = [
-    const HomeView(),
-    const SizedBox(),
-    const SizedBox(),
-    const SettingsView(),
-  ];
 }
