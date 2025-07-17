@@ -8,4 +8,5 @@ abstract class EndPoints {
   static const String updatePassword = "users/changeMyPassword";
   static const String cart = "cart";
   static const String products = "products";
+  static const String orders = "orders";
 }

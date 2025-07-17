@@ -1,5 +1,7 @@
 import 'package:api_session/features/auth/data/repos/auth_repo.dart';
 import 'package:api_session/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:api_session/features/checkout/data/repos/checkout_repo.dart';
+import 'package:api_session/features/checkout/data/repos/checkout_repo_impl.dart';
 import 'package:api_session/features/home/data/repos/products_repo.dart';
 import 'package:api_session/features/home/data/repos/products_repo_impl.dart';
 import 'package:dio/dio.dart';
@@ -17,5 +19,8 @@ void setupServiceLocator() {
   );
   getIt.registerSingleton<ProductsRepo>(
     ProductsRepoImpl(apiService: getIt<ApiService>()),
+  );
+  getIt.registerSingleton<CheckoutRepo>(
+    CheckoutRepoImpl(apiService: getIt<ApiService>()),
   );
 }

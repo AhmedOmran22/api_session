@@ -57,7 +57,15 @@ class ProductsRepoImpl implements ProductsRepo {
         EndPoints.cart,
         headers: {"token": "${Prefs.getString(kToken)}"},
       );
-      return Right(CartProductModel.fromJson(result));
+      CartProductModel cartProductModel = CartProductModel.fromJson(
+        result,
+      );
+      Prefs.setString(kCartId, cartProductModel.cartId ?? "");
+      Prefs.setString(
+        kOwnerCartId,
+        cartProductModel.data?.cartOwner.toString() ?? "",
+      );
+      return Right(cartProductModel);
     } on CustomException catch (e) {
       return left(ServerFailure(errMessage: e.message));
     } catch (e) {
