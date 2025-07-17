@@ -20,8 +20,11 @@ class CartViewBody extends StatelessWidget {
             return const Center(child: Text("Cart is empty"));
           }
           return CartProductsListViewBuilder(
-            products: state.cartProductModel.data!.products!,
+            cartProductModel: state.cartProductModel,
           );
+        }
+        if (state is ClearCartSuccess) {
+          return const Center(child: Text("Cart is empty"));
         }
         return const Center(child: CircularProgressIndicator());
       },

@@ -64,4 +64,36 @@ class ProductsRepoImpl implements ProductsRepo {
       return left(ServerFailure(errMessage: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> clearCart() async {
+    try {
+      await apiService.delete(
+        EndPoints.cart,
+        headers: {"token": "${Prefs.getString(kToken)}"},
+      );
+      return const Right(null);
+    } on CustomException catch (e) {
+      return left(ServerFailure(errMessage: e.message));
+    } catch (e) {
+      return left(ServerFailure(errMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> deleteProductFromCart({
+    required String id,
+  }) async {
+    try {
+      await apiService.delete(
+        "${EndPoints.cart}/$id",
+        headers: {"token": "${Prefs.getString(kToken)}"},
+      );
+      return const Right(null);
+    } on CustomException catch (e) {
+      return left(ServerFailure(errMessage: e.message));
+    } catch (e) {
+      return left(ServerFailure(errMessage: e.toString()));
+    }
+  }
 }

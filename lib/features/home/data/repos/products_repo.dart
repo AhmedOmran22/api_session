@@ -8,4 +8,8 @@ abstract class ProductsRepo {
   Future<Either<Failure, List<ProductModel>>> getProducts();
   Future<Either<Failure, void>> addProductToCart({required String id});
   Future<Either<Failure, CartProductModel>> getCartProducts();
+  Future<Either<Failure, void>> clearCart();
+  Future<Either<Failure, void>> deleteProductFromCart({
+    required String id,
+  });
 }

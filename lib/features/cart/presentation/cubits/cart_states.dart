@@ -1,4 +1,3 @@
-
 import '../../data/models/cart_product_model.dart';
 
 abstract class CartStates {}
@@ -18,3 +17,5 @@ class GetCartSuccess extends CartStates {
   CartProductModel cartProductModel;
   GetCartSuccess({required this.cartProductModel});
 }
+
+class ClearCartSuccess extends CartStates {}
