@@ -19,7 +19,6 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
       inactiveThumbColor: Colors.grey,
       activeColor: Theme.of(context).primaryColor,
       activeTrackColor: Colors.grey.shade700,
-      // inactiveTrackColor: Colors.grey,
       value: Prefs.getBool(kIsDarkMode),
       onChanged: (value) {
         setState(() {
