@@ -5,24 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'core/routes/on_generate_routes.dart';
 import 'core/services/prefs.dart';
-import 'core/theme_cubit/theme_cubit_state.dart';
-import 'core/themes/dark_theme.dart';
-import 'core/themes/light_theme.dart';
 
 class ApiSession extends StatelessWidget {
   const ApiSession({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ThemeCubit, ThemeCubitState>(
+    return BlocBuilder<ThemeCubit, ThemeData>(
       builder: (context, state) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          theme: state is LightThemeState ? lightTheme : darkTheme,
+          theme: state,
           onGenerateRoute: onGenerateRoute,
           initialRoute: getInitialRoute(),
         );
       },
     );
+    
   }
 }
 

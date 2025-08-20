@@ -1,17 +1,19 @@
+import 'package:api_session/core/themes/dark_theme.dart';
+import 'package:api_session/core/themes/light_theme.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../constants/constants.dart';
 import '../services/prefs.dart';
-import 'theme_cubit_state.dart';
 
-class ThemeCubit extends Cubit<ThemeCubitState> {
-  ThemeCubit() : super(ThemeCubitInitial());
+class ThemeCubit extends Cubit<ThemeData> {
+  ThemeCubit() : super(lightTheme);
 
   void getCurrentTheme() {
     bool isDark = Prefs.getBool(kIsDarkMode);
     if (isDark) {
-      emit(DarkThemeState());
+      emit(darkTheme);
     } else {
-      emit(LightThemeState());
+      emit(lightTheme);
     }
   }
 
