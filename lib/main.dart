@@ -1,5 +1,6 @@
 import 'package:api_session/core/services/prefs.dart';
 import 'package:api_session/core/theme_cubit/theme_cubit.dart';
+import 'package:api_session/my_custom_inherited_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +14,10 @@ void main() async {
   runApp(
     BlocProvider(
       create: (context) => ThemeCubit()..getCurrentTheme(),
-      child: const ApiSession(),
+      child: const MyCustomWidget(
+        myValue: 'omran',
+        child: ApiSession(),
+      ),
     ),
   );
 }

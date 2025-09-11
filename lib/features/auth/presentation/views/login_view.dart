@@ -1,5 +1,6 @@
 import 'package:api_session/core/utils/app_assets.dart';
 import 'package:api_session/features/auth/presentation/cubits/login_cubit/login_cubit.dart';
+import 'package:api_session/my_custom_inherited_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/services/setup_service_locator.dart';
@@ -32,6 +33,7 @@ class LoginView extends StatelessWidget {
                   highlightedTextWithonTap: ' Sign Up',
                 ),
                 const SizedBox(height: 16),
+                Text(context.myCustomWidget.myValue),
               ],
             ),
           ),

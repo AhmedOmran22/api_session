@@ -64,7 +64,9 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, void>> verfiyCode({required String code}) async {
+  Future<Either<Failure, void>> verfiyCode({
+    required String code,
+  }) async {
     try {
       await apiService.post(
         EndPoints.verifyCode,
@@ -99,7 +101,8 @@ class AuthRepoImpl implements AuthRepo {
 
   @override
   Future<Either<Failure, void>> updatePassword({
-    required UpdatePasswordRequsetModel updatePasswordRequsetModel,
+    required UpdatePasswordRequsetModel
+    updatePasswordRequsetModel,
   }) async {
     try {
       await apiService.put(
