@@ -14,9 +14,18 @@ void main() async {
   runApp(
     BlocProvider(
       create: (context) => ThemeCubit()..getCurrentTheme(),
-      child: const MyCustomWidget(
+      child: MyInhertedCustomWidget(
         myValue: 'omran',
-        child: ApiSession(),
+        child: Builder(
+          builder: (context) {
+            return GestureDetector(
+              onTap: () {
+                FocusScope.of(context).unfocus();
+              },
+              child: const ApiSession(),
+            );
+          },
+        ),
       ),
     ),
   );

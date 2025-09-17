@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 
-class MyCustomWidget extends InheritedWidget {
+class MyInhertedCustomWidget extends InheritedWidget {
   final String myValue;
 
-  const MyCustomWidget({
+  const MyInhertedCustomWidget({
     super.key,
     required this.myValue,
     required super.child,
   });
 
   @override
-  bool updateShouldNotify(covariant MyCustomWidget oldWidget) {
+  bool updateShouldNotify(covariant MyInhertedCustomWidget oldWidget) {
     return oldWidget.myValue != myValue;
   }
 
-  static MyCustomWidget of(BuildContext context) {
+  static MyInhertedCustomWidget of(BuildContext context) {
     return context
-        .dependOnInheritedWidgetOfExactType<MyCustomWidget>()!;
+        .dependOnInheritedWidgetOfExactType<MyInhertedCustomWidget>()!;
   }
 }
 
 extension MyCustomWidgetExtension on BuildContext {
-  MyCustomWidget get myCustomWidget => MyCustomWidget.of(this);
+  MyInhertedCustomWidget get myCustomWidget => MyInhertedCustomWidget.of(this);
 }
